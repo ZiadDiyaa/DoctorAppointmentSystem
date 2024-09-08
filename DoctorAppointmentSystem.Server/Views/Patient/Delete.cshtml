@@ -1,0 +1,8 @@
+@model DoctorAppointmentSystem.Application.DTOs.PatientDTO
+
+<form asp-action="DeletePatient" method="post" style="display:inline;">
+    <input asp-for="PatientID" type="hidden" />
+    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+        <i class="fa fa-trash"></i> Delete
+    </button>
+</form>

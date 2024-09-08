@@ -1,0 +1,52 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model DoctorAppointmentSystem.Application.ResultObject<ICollection<DoctorAppointmentSystem.Application.DTOs.DoctorDTO>>
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary">Book an Appointment</h2>
+        <hr />
+    </div>
+
+    <form method="post" asp-action="BookAppointment">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label asp-for="Specialty" class="form-label">Choose Specialty</label>
+                <select asp-for="Specialty" class="form-select">
+                    <option value="">Select Specialty</option>
+                    @foreach (var doctor in Model.Result)
+                    {
+                    <option value="@doctor.Specialization">@doctor.Specialization</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="City" class="form-label">Choose City</label>
+                <select asp-for="City" class="form-select">
+                    <option value="">Select City</option>
+                    @foreach (var doctor in Model.Result)
+                    {
+                    <option value="@doctor.City">@doctor.City</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Area" class="form-label">Choose Area</label>
+                <select asp-for="Area" class="form-select">
+                    <option value="">Select Area</option>
+                    @foreach (var doctor in Model.Result)
+                    {
+                    <option value="@doctor.Area">@doctor.Area</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Book Appointment</button>
+            </div>
+        </div>
+    </form>
+</div>

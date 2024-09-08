@@ -1,0 +1,28 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model AccountDetailsDTO
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-danger">Delete Account</h2>
+        <hr />
+    </div>
+    <h4>Are you sure you want to delete this account?</h4>
+    <div class="mb-3">
+        <strong>Username:</strong> @Model.UserName
+    </div>
+    <div class="mb-3">
+        <strong>Email:</strong> @Model.Email
+    </div>
+    <div class="mb-3">
+        <strong>Created Date:</strong> @Model.CreatedDate.ToShortDateString()
+    </div>
+    <div class="mb-3">
+        <strong>Last Login Date:</strong> @(Model.LastLoginDate?.ToShortDateString() ?? "Never")
+    </div>
+
+    <form method="post" asp-action="DeleteAccountDetails">
+        <input type="hidden" asp-for="AccountID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="GetAllAccountDetails" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model IEnumerable<AccountDetailsDTO>
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary">All Account Details</h2>
+        <hr />
+    </div>
+
+    @if (!Model.Any())
+    {
+    <p>No accounts found.</p>
+    }
+    else
+    {
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Created Date</th>
+            <th>Last Login Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var account in Model)
+        {
+        <tr>
+            <td>@account.UserName</td>
+            <td>@account.Email</td>
+            <td>@account.CreatedDate.ToShortDateString()</td>
+            <td>@(account.LastLoginDate?.ToShortDateString() ?? "Never")</td>
+            <td>
+                <a asp-action="EditAccountDetails" asp-route-id="@account.AccountID" class="btn btn-warning btn-sm">Edit</a>
+                <a asp-action="DeleteAccountDetails" asp-route-id="@account.AccountID" class="btn btn-danger btn-sm">Delete</a>
+                <a asp-action="DetailsAccountDetails" asp-route-id="@account.AccountID" class="btn btn-info btn-sm">Details</a>
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
+</div>
+
+<div>
+    <a asp-action="AddAccountDetails" class="btn btn-primary">Add New Account</a>
+</div>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentSystem.Core", "DoctorAppointmentSystem.Core\DoctorAppointmentSystem.Core.csproj", "{3C4374CF-4DFB-4108-AB48-F61B1E65777B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentSystem.EF", "DoctorAppointmentSystem.EF\DoctorAppointmentSystem.EF.csproj", "{8E4D7E45-27EB-4933-8EEF-405E162D9DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentSystem.Server", "DoctorAppointmentSystem.Server\DoctorAppointmentSystem.Server.csproj", "{930CA4FB-BFD5-4B13-8E5B-6D0CB0969EF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentSystem.Application", "DoctorAppointmentSystem.Application\DoctorAppointmentSystem.Application.csproj", "{6F47150F-EB9F-40E1-90E7-0592FBD5484A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C4374CF-4DFB-4108-AB48-F61B1E65777B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4374CF-4DFB-4108-AB48-F61B1E65777B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4374CF-4DFB-4108-AB48-F61B1E65777B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4374CF-4DFB-4108-AB48-F61B1E65777B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E4D7E45-27EB-4933-8EEF-405E162D9DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4D7E45-27EB-4933-8EEF-405E162D9DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4D7E45-27EB-4933-8EEF-405E162D9DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4D7E45-27EB-4933-8EEF-405E162D9DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930CA4FB-BFD5-4B13-8E5B-6D0CB0969EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930CA4FB-BFD5-4B13-8E5B-6D0CB0969EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930CA4FB-BFD5-4B13-8E5B-6D0CB0969EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930CA4FB-BFD5-4B13-8E5B-6D0CB0969EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F47150F-EB9F-40E1-90E7-0592FBD5484A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F47150F-EB9F-40E1-90E7-0592FBD5484A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F47150F-EB9F-40E1-90E7-0592FBD5484A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F47150F-EB9F-40E1-90E7-0592FBD5484A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

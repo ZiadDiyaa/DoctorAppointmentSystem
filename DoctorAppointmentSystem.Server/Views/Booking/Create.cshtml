@@ -1,0 +1,81 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model DoctorAppointmentSystem.Application.DTOs.AppointmentDTO
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book an Appointment</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="~/css/style.css" />
+</head>
+
+<body>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <form method="post" asp-action="BookAppointment">
+                        <div class="row no-margin">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label asp-for="Speciality" class="form-label">Choose Speciality</label>
+                                    <select asp-for="Speciality" class="form-control" required>
+                                        <option value="">Select Speciality</option>
+                                        <!-- Populate this dropdown with available specialities -->
+                                    </select>
+                                    <span asp-validation-for="Speciality" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row no-margin">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label asp-for="City" class="form-label">Choose City</label>
+                                            <select asp-for="City" class="form-control" required>
+                                                <option value="">Select City</option>
+                                                <!-- Populate this dropdown with available cities -->
+                                            </select>
+                                            <span asp-validation-for="City" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label asp-for="Area" class="form-label">Choose Area</label>
+                                            <select asp-for="Area" class="form-control" required>
+                                                <option value="">Select Area</option>
+                                                <!-- Populate this dropdown with available areas -->
+                                            </select>
+                                            <span asp-validation-for="Area" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-btn">
+                                    <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i> Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.PartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

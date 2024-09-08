@@ -1,0 +1,58 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model DoctorDTO
+
+<form method="post" asp-action="AddDoctor">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add Doctor</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirstName"></label><span class="text-danger">*</span>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName"></label><span class="text-danger">*</span>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DateOfBirth"></label><span class="text-danger">*</span>
+            <input asp-for="DateOfBirth" class="form-control" type="date" />
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Specialization"></label><span class="text-danger">*</span>
+            <input asp-for="Specialization" class="form-control" />
+            <span asp-validation-for="Specialization" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Rating"></label>
+            <input asp-for="Rating" class="form-control" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email"></label><span class="text-danger">*</span>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber"></label><span class="text-danger">*</span>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AccountID"></label><span class="text-danger">*</span>
+            <input asp-for="AccountID" class="form-control" />
+            <span asp-validation-for="AccountID" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

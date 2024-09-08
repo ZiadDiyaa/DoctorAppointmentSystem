@@ -1,0 +1,37 @@
+@using DoctorAppointmentSystem.Application.DTOs
+@model IEnumerable<AppointmentDTO>
+
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary">All Appointments</h2>
+        <hr />
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Appointment Date</th>
+            <th>Start Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.PatientID</td>
+                <td>@appointment.DoctorID</td>
+                <td>@appointment.AppointmentDate.ToShortDateString()</td>
+                <td>@appointment.StartTime.ToShortTimeString()</td>
+                <td>@appointment.Status</td>
+                <td>
+                    <a asp-action="EditAppointment" asp-route-appointmentID="@appointment.AppointmentID" class="btn btn-warning">Edit</a>
+                    <a asp-action="DeleteAppointment" asp-route-appointmentID="@appointment.AppointmentID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

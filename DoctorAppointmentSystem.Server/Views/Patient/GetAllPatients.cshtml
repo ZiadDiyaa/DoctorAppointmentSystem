@@ -1,0 +1,38 @@
+@model ICollection<DoctorAppointmentSystem.Application.DTOs.PatientDTO>
+<h2>All Patients</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Medical History</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var patient in Model)
+    {
+        <tr>
+            <td>@patient.FirstName</td>
+            <td>@patient.LastName</td>
+            <td>@patient.DateOfBirth.ToShortDateString()</td>
+            <td>@patient.Email</td>
+            <td>@patient.PhoneNumber</td>
+            <td>@patient.Address</td>
+            <td>@patient.MedicalHistory</td>
+            <td>
+                <a asp-action="EditPatient" asp-route-patientID="@patient.PatientID" class="btn btn-primary btn-sm">Edit</a>
+                <form asp-action="DeletePatient" method="post" style="display:inline;">
+                    <input asp-for="PatientID" type="hidden" value="@patient.PatientID" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
