@@ -4,6 +4,7 @@ using DoctorAppointmentSystem.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentSystem.Server.Controllers;
+[Route("Appointment")]
 public class AppointmentController: Controller
 {
     private readonly IManageAppointment _manageAppointment;
@@ -14,6 +15,7 @@ public class AppointmentController: Controller
     }
     
     [HttpGet("{appointmentID}")]
+    [Route("GetAppointment")]
     public IActionResult GetAppointment(int appointmentID)
     {
         ResultObject<AppointmentDTO> result = _manageAppointment.GetAppointment(appointmentID);
@@ -24,11 +26,12 @@ public class AppointmentController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpGet]
+    [Route("GetAllApppointments")]
     public IActionResult GetAllAppointments(int patientID, int DoctorID)
     {
         ResultObject<ICollection<AppointmentDTO>> result = _manageAppointment.GetAllAppointments(patientID, DoctorID);
@@ -39,7 +42,7 @@ public class AppointmentController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -47,6 +50,7 @@ public class AppointmentController: Controller
     
     
     [HttpPost]
+    [Route("AddAppointment")]
     public IActionResult AddAppointment(AppointmentDTO appointmentDTO)
     {
         ResultObject<bool> result = _manageAppointment.AddAppointment(appointmentDTO);
@@ -57,11 +61,12 @@ public class AppointmentController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpPut]
+    [Route("UpdateAppointment")]
     public IActionResult UpdateAppointment(AppointmentDTO appointmentDTO)
     {
         ResultObject<bool> result = _manageAppointment.UpdateAppointment(appointmentDTO);
@@ -72,11 +77,12 @@ public class AppointmentController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpDelete]
+    [Route("DeleteAppointment")]
     public IActionResult DeleteAppointment(int appointmentID)
     {
         ResultObject<bool> result = _manageAppointment.DeleteAppointment(appointmentID);
@@ -87,7 +93,7 @@ public class AppointmentController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
 }

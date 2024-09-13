@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DoctorAppointmentSystem.Server.Controllers;
+[Route("AccountDetails")]
 public class AccountDetailsController: Controller
 {
     private readonly IManageAccountDetails _manageAccountDetails;
@@ -16,6 +17,7 @@ public class AccountDetailsController: Controller
     }
     
     [HttpGet("{accountID}")]
+    [Route("GetAccountDetails")]
     public IActionResult GetAccountDetails(int accountID)
     {
         ResultObject<AccountDetailsDTO> result = _manageAccountDetails.GetAccountDetails(accountID);
@@ -26,11 +28,12 @@ public class AccountDetailsController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpGet]
+    [Route("GetAllAccountDetails")]
     public IActionResult GetAllAccountDetails()
     {
         ResultObject<ICollection<AccountDetailsDTO>> result = _manageAccountDetails.GetAllAccountDetails();
@@ -41,11 +44,12 @@ public class AccountDetailsController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpPost]
+    [Route("AddAccountDetails")]
     public IActionResult AddAccountDetails(AccountDetailsDTO accountDetailsDTO)
     {
         ResultObject<bool> result = _manageAccountDetails.AddAccountDetails(accountDetailsDTO);
@@ -56,11 +60,12 @@ public class AccountDetailsController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpPut]
+    [Route("UpdateAccountDetails")]
     public IActionResult UpdateAccountDetails(AccountDetailsDTO accountDetailsDTO)
     {
         ResultObject<bool> result = _manageAccountDetails.UpdateAccountDetails(accountDetailsDTO);
@@ -71,11 +76,12 @@ public class AccountDetailsController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpDelete("{accountID}")]
+    [Route("DeleteAccountDetails")]
     public IActionResult DeleteAccountDetails(int accountID)
     {
         ResultObject<bool> result = _manageAccountDetails.DeleteAccountDetails(accountID);
@@ -86,7 +92,7 @@ public class AccountDetailsController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     

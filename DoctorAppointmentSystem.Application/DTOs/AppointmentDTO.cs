@@ -17,4 +17,7 @@ public class AppointmentDTO
     // public string TreatmentType { get; set; }
     
     public string? Status { get; set; }
+    
+    
+    public string PatientName { get; set; }
 }

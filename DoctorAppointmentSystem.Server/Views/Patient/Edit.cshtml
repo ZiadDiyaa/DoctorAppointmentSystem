@@ -1,7 +1,9 @@
 @model DoctorAppointmentSystem.Application.DTOs.PatientDTO
 
 <h2>Edit Patient Information</h2>
-
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <form asp-action="EditPatient" method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">

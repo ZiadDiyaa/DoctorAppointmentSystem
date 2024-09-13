@@ -4,6 +4,7 @@ using DoctorAppointmentSystem.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentSystem.Server.Controllers;
+[Route("Consumable")]
 public class ConsumableController: Controller
 {
     private readonly IManageConsumable _manageConsumable;
@@ -14,6 +15,7 @@ public class ConsumableController: Controller
     }
     
     [HttpGet("{consumableID}")]
+    [Route("GetConsumable")]
     public IActionResult GetConsumable(int consumableID)
     {
         ResultObject<ConsumableDTO> result = _manageConsumable.GetConsumable(consumableID);
@@ -24,11 +26,12 @@ public class ConsumableController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpGet]
+    [Route("GetAllConsumables")]
     public IActionResult GetAllConsumables()
     {
         ResultObject<ICollection<ConsumableDTO>> result = _manageConsumable.GetAllConsumables();
@@ -39,11 +42,12 @@ public class ConsumableController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpPost]
+    [Route("AddConsumable")]
     public IActionResult AddConsumable(ConsumableDTO consumableDTO)
     {
         ResultObject<bool> result = _manageConsumable.AddConsumable(consumableDTO);
@@ -54,11 +58,12 @@ public class ConsumableController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpPut]
+    [Route("UpdateConsumable")]
     public IActionResult UpdateConsumable(ConsumableDTO consumableDTO)
     {
         ResultObject<bool> result = _manageConsumable.UpdateConsumable(consumableDTO);
@@ -69,11 +74,12 @@ public class ConsumableController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
     [HttpDelete]
+    [Route("DeleteConsumable")]
     public IActionResult DeleteConsumable(int consumableID)
     {
         ResultObject<bool> result = _manageConsumable.DeleteConsumable(consumableID);
@@ -84,7 +90,7 @@ public class ConsumableController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
 }

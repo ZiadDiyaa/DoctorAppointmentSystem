@@ -1,0 +1,48 @@
+<div class="table-data">
+    <div class="order">
+        <div class="head">
+            <h3>Recent Appointments</h3>
+            <i class='bx bx-search'></i>
+            <i class='bx bx-filter'></i>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Date of Appointment</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var appointment in Model.Appointments)
+            {
+            <tr>
+                <td>@appointment.PatientName</td>
+                <td>@appointment.AppointmentDate.ToShortDateString()</td>
+                <td><span class="status @appointment.Status.ToLower()">@appointment.Status</span></td>
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Commented out the tasks section -->
+    <!-- 
+    <div class="todo">
+        <div class="head">
+            <h3>Upcoming Tasks</h3>
+            <i class='bx bx-plus'></i>
+            <i class='bx bx-filter'></i>
+        </div>
+        <ul class="todo-list">
+            @* @foreach (var task in Model.Tasks) *@
+            @* { *@
+            @*     <li class="@task.IsCompleted ? "completed" : "not-completed""> *@
+            @*         <p>@task.Description</p> *@
+            @*         <i class='bx bx-dots-vertical-rounded'></i> *@
+            @*     </li> *@
+            @* } *@
+        </ul>
+    </div>
+    -->
+</div>

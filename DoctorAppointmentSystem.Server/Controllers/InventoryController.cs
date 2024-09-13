@@ -4,6 +4,7 @@ using DoctorAppointmentSystem.Application.InventoryManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentSystem.Server.Controllers;
+[Route("Inventory")]
 public class InventoryController: Controller
 {
  private readonly IManageInventory _manageInventory;
@@ -14,6 +15,7 @@ public class InventoryController: Controller
  }
  
     [HttpGet("{inventoryID}")]
+    [Route("GetInventory")]
     public IActionResult GetInventory(int inventoryID)
     {
         ResultObject<InventoryDTO> result = _manageInventory.GetInventory(inventoryID);
@@ -24,11 +26,12 @@ public class InventoryController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpGet]
+    [Route("GetAllInventories")]
     public IActionResult GetAllInventories()
     {
         ResultObject<ICollection<InventoryDTO>> result = _manageInventory.GetAllInventory();
@@ -39,11 +42,12 @@ public class InventoryController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpPost]
+    [Route("AddInventory")]
     public IActionResult AddInventory(InventoryDTO inventoryDTO)
     {
         ResultObject<bool> result = _manageInventory.AddInventory(inventoryDTO);
@@ -54,11 +58,12 @@ public class InventoryController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpPut]
+    [Route("UpdateInventory")]
     public IActionResult UpdateInventory(InventoryDTO inventoryDTO)
     {
         ResultObject<bool> result = _manageInventory.UpdateInventory(inventoryDTO);
@@ -69,11 +74,12 @@ public class InventoryController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpDelete("{inventoryID}")]
+    [Route("DeleteInventory")]
     public IActionResult DeleteInventory(int inventoryID)
     {
         ResultObject<bool> result = _manageInventory.DeleteInventory(inventoryID);
@@ -84,7 +90,7 @@ public class InventoryController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     

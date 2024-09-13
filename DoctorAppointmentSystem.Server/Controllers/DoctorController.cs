@@ -24,7 +24,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -40,7 +40,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -55,7 +55,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -70,7 +70,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -85,7 +85,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     
@@ -102,7 +102,7 @@ public class DoctorController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error");
         }
     }
     

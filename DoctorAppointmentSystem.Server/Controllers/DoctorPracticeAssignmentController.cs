@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentSystem.Server.Controllers
 {
+    [Route("DoctorPracticeAssignment")]
     public class DoctorPracticeAssignmentController : Controller
     {
         private readonly IManageDoctorPractice _manageDoctorPractice;
@@ -15,6 +16,7 @@ namespace DoctorAppointmentSystem.Server.Controllers
         }
 
         [HttpGet("{doctorPracticeID}")]
+        [Route("GetDoctorPracticeAssignment")]
         public IActionResult GetDoctorPracticeAssignment(int doctorPracticeID)
         {
             var result = _manageDoctorPractice.GetDoctorPracticeAssignment(doctorPracticeID);
@@ -25,11 +27,12 @@ namespace DoctorAppointmentSystem.Server.Controllers
             }
             else
             {
-                return View("Error", result.Messages);  // Return an error view with the messages
+                return View("Error");  // Return an error view with the messages
             }
         }
 
         [HttpGet]
+        [Route("GetAllDoctorPracticeAssignments")]
         public IActionResult GetAllDoctorPracticeAssignments()
         {
             var result = _manageDoctorPractice.GetAllDoctorPracticeAssignments();
@@ -40,11 +43,12 @@ namespace DoctorAppointmentSystem.Server.Controllers
             }
             else
             {
-                return View("Error", result.Messages);  // Return an error view with the messages
+                return View("Error");  // Return an error view with the messages
             }
         }
 
         [HttpPost]
+        [Route("AddDoctorPracticeAssignment")]
         public IActionResult AddDoctorPracticeAssignment(DoctorPracticeAssignmentDTO doctorPracticeAssignmentDTO)
         {
             var result = _manageDoctorPractice.AddDoctorPracticeAssignment(doctorPracticeAssignmentDTO);
@@ -55,11 +59,12 @@ namespace DoctorAppointmentSystem.Server.Controllers
             }
             else
             {
-                return View("Error", result.Messages);  // Return an error view with the messages
+                return View("Error" );  // Return an error view with the messages
             }
         }
 
         [HttpPut]
+        [Route("UpdateDoctorPracticeAssignment")]
         public IActionResult UpdateDoctorPracticeAssignment(DoctorPracticeAssignmentDTO doctorPracticeAssignmentDTO)
         {
             var result = _manageDoctorPractice.UpdateDoctorPracticeAssignment(doctorPracticeAssignmentDTO);
@@ -70,11 +75,12 @@ namespace DoctorAppointmentSystem.Server.Controllers
             }
             else
             {
-                return View("Error", result.Messages);  // Return an error view with the messages
+                return View("Error" );  // Return an error view with the messages
             }
         }
 
         [HttpDelete("{doctorPracticeID}")]
+        [Route("DeleteDoctorPracticeAssignment")]
         public IActionResult DeleteDoctorPracticeAssignment(int doctorPracticeID)
         {
             var result = _manageDoctorPractice.DeleteDoctorPracticeAssignment(doctorPracticeID);
@@ -85,7 +91,7 @@ namespace DoctorAppointmentSystem.Server.Controllers
             }
             else
             {
-                return View("Error", result.Messages);  // Return an error view with the messages
+                return View("Error" );  // Return an error view with the messages
             }
         }
     }

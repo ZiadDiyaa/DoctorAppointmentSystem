@@ -4,6 +4,7 @@ using DoctorAppointmentSystem.Application.TreatmentRecordManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentSystem.Server;
+[Route("TreatmentRecord")]
 public class TreatmentRecordController: Controller
 {
     private readonly IManageTreatmentRecord _manageTreatmentRecord;
@@ -14,6 +15,7 @@ public class TreatmentRecordController: Controller
     }
     
     [HttpGet("{treatmentRecordID}")]
+    [Route("GetTreatmentRecord")]
     public IActionResult GetTreatmentRecord(int treatmentRecordID)
     {
         ResultObject<TreatmentRecordDTO> result = _manageTreatmentRecord.GetTreatmentRecord(treatmentRecordID);
@@ -24,11 +26,12 @@ public class TreatmentRecordController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpGet]
+    [Route("GetAllTreatmentRecords")]
     public IActionResult GetAllTreatmentRecords()
     {
         ResultObject<ICollection<TreatmentRecordDTO>> result = _manageTreatmentRecord.GetAllTreatmentRecords();
@@ -39,11 +42,12 @@ public class TreatmentRecordController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpPost]
+    [Route("AddTreatmentRecord")]
     public IActionResult AddTreatmentRecord(TreatmentRecordDTO treatmentRecordDTO)
     {
         ResultObject<bool> result = _manageTreatmentRecord.AddTreatmentRecord(treatmentRecordDTO);
@@ -54,11 +58,12 @@ public class TreatmentRecordController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpPut]
+    [Route("UpdateTreatmentRecord")]
     public IActionResult UpdateTreatmentRecord(TreatmentRecordDTO treatmentRecordDTO)
     {
         ResultObject<bool> result = _manageTreatmentRecord.UpdateTreatmentRecord(treatmentRecordDTO);
@@ -69,11 +74,12 @@ public class TreatmentRecordController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
     
     [HttpDelete("{treatmentRecordID}")]
+    [Route("DeleteTreatmentRecord")]
     public IActionResult DeleteTreatmentRecord(int treatmentRecordID)
     {
         ResultObject<bool> result = _manageTreatmentRecord.DeleteTreatmentRecord(treatmentRecordID);
@@ -84,7 +90,7 @@ public class TreatmentRecordController: Controller
         }
         else
         {
-            return View("Error", result.Messages);
+            return View("Error" );
         }
     }
 }
